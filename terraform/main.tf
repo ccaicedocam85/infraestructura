@@ -17,7 +17,7 @@ locals {
   
 }
 module "vpc" {
-  source = "./modules/network"
+  source = "../../modules/network"
 
   env             = "dev"
   azs             = ["us-east-1a", "us-east-1b"]
@@ -34,7 +34,7 @@ module "vpc" {
 }
 
 module "creacion_rds" {
-  source = "./modules/rds"
+  source = "../../modules/rds"
 
   identifier                  = "rds-postgres-${local.env}"
   allocated_storage           = 500
@@ -62,7 +62,7 @@ depends_on = [ module.sg_instance, module.vpc ]
 }
 
 module "sg_instance" {
-  source              = "./modules/securitygroup"
+  source              = "../../modules/securitygroup"
   name_security_group = "sg_instance_rds"
   vpc_id              = module.vpc.vpc_id
   ingress_rules = [
