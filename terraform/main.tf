@@ -45,7 +45,7 @@ module "creacion_rds" {
   manage_master_user_password = null
   username                    = "postgresad"
   password                    = "r1HHDXzLSzfPg"
-  availability_zone           = "us-east-1a"
+  availability_zone           = null
   iops                        = "12000"
   apply_immediately           = true
   network_type                = null
