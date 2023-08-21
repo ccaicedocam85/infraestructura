@@ -15,7 +15,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: develop
+    environment: development
 
     defaults:
       run:
@@ -39,12 +39,20 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+      working-directory: ./terraform
 
     - name: Terraform Format
       run: terraform fmt -check
+      working-directory: ./terraform
+
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: ./terraform
 
     - name: Terraform Plan
       run: terraform plan -input=false
+      working-directory: ./terraform
 
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
+      working-directory: ./terraform
