@@ -32,7 +32,7 @@ module "vpc" {
     "create_terraform" = true
   }
 }
-
+/*
 module "creacion_rds" {
   source = "./modules/rds"
 
@@ -86,3 +86,4 @@ module "sg_instance" {
     }
   ]
 }
+*/
