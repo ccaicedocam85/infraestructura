@@ -10,12 +10,12 @@ variable "name_security_group" {
 variable "ingress_rules" {
   description = "ingress rules"
   type = list(object({
-    from_port   = number
-    to_port     = number
-    protocol    = string
-    cidr_blocks = list(string)
+    from_port       = number
+    to_port         = number
+    protocol        = string
+    cidr_blocks     = list(string)
     security_groups = list(string)
-    description = string
+    description     = string
   }))
 }
 
