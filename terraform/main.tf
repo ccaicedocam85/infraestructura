@@ -53,7 +53,7 @@ module "creacion_rds" {
   storage_type                = "gp3"
   skip_final_snapshot         = true
   final_snapshot_identifier   = true
-  port                        = 1548
+  port                        = 1549
   db_subnet_group_name        = "db_subnet_group_gg"
   parameter_group_name        = "default.postgres15"
   subnet_ids                  = module.vpc.private_subnet_ids
