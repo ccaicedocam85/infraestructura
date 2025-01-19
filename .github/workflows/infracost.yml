@@ -8,7 +8,6 @@ on:
     branches:
       - main
       - develop
-      - develop
 
 env:
   # If you use private modules you'll need this env variable to use
