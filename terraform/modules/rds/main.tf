@@ -20,8 +20,8 @@ resource "aws_db_instance" "this" {
   skip_final_snapshot         = var.skip_final_snapshot
   final_snapshot_identifier   = var.final_snapshot_identifier
   port                        = var.port
-  multi_az = var.multi_az
-  depends_on = [ aws_db_subnet_group.subnet_group]
+  multi_az                    = var.multi_az
+  depends_on                  = [aws_db_subnet_group.subnet_group]
 }
 
 resource "aws_db_subnet_group" "subnet_group" {

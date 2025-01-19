@@ -1,10 +1,10 @@
 terraform {
   required_version = ">= 0.12"
-     backend "s3" {
-       bucket = "terraform-tfm"
-       key    = "terraform-tfm"
-       region = "us-east-1"
-   }
+  backend "s3" {
+    bucket = "terraform-tfm"
+    key    = "terraform-tfm"
+    region = "us-east-1"
+  }
 
 }
 
@@ -14,7 +14,7 @@ provider "aws" {
 
 locals {
   env = "dev"
-  
+
 }
 module "vpc" {
   source = "./modules/network"
@@ -58,7 +58,7 @@ module "creacion_rds" {
   parameter_group_name        = "default.postgres15"
   subnet_ids                  = module.vpc.private_subnet_ids
   multi_az                    = true
-depends_on = [ module.sg_instance, module.vpc ]
+  depends_on                  = [module.sg_instance, module.vpc]
 }
 
 module "sg_instance" {
