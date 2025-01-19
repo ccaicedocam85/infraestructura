@@ -33,6 +33,7 @@ module "vpc" {
   }
 }
 
+/*
 module "creacion_rds" {
   source = "./modules/rds"
 
@@ -60,6 +61,8 @@ module "creacion_rds" {
   multi_az                    = true
   depends_on                  = [module.sg_instance, module.vpc]
 }
+
+*/
 
 module "sg_instance" {
   source              = "./modules/securitygroup"
