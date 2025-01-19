@@ -16,6 +16,7 @@ locals {
   env = "dev"
 
 }
+/*
 module "vpc" {
   source = "./modules/network"
 
@@ -33,7 +34,7 @@ module "vpc" {
   }
 }
 
-/*
+
 module "creacion_rds" {
   source = "./modules/rds"
 
@@ -62,8 +63,6 @@ module "creacion_rds" {
   depends_on                  = [module.sg_instance, module.vpc]
 }
 
-*/
-
 module "sg_instance" {
   source              = "./modules/securitygroup"
   name_security_group = "sg_instance_rds"
@@ -89,3 +88,4 @@ module "sg_instance" {
     }
   ]
 }
+*/
