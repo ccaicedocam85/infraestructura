@@ -1,5 +1,5 @@
 # Infracost runs on pull requests (PR) and posts PR comments.
-# If you use Infracost Cloud, Infracost also runs on main/master branch pushes so the dashboard is updated.
+# If you use Infracost Cloud, Infracost also runs on main/develop branch pushes so the dashboard is updated.
 # The GitHub Action docs (https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) describe other trigger options.
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - main
-      - master
+      - develop
       - develop
 
 env:
@@ -43,12 +43,12 @@ jobs:
 
       - name: Setup Infracost
         uses: infracost/actions/setup@v3
-        # See https://github.com/infracost/actions/tree/master/setup for other inputs
+        # See https://github.com/infracost/actions/tree/develop/setup for other inputs
         # If you can't use this action, use Docker image infracost/infracost:ci-0.10
         with:
           api-key: ${{ secrets.INFRACOST_API_KEY }}
 
-      # Checkout the base branch of the pull request (e.g. main/master).
+      # Checkout the base branch of the pull request (e.g. main/develop).
       - name: Checkout base branch
         uses: actions/checkout@v4
         with:
@@ -93,7 +93,7 @@ jobs:
     # If you use private modules, or store Terraform variables or modules in a 3rd party
     # such as TFC or Spacelift, include the same steps/variables as the infracost-pull-request-checks job
     name: Infracost Default Branch Update
-    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'master')
+    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'develop')
     runs-on: ubuntu-latest
     steps:
       - name: Setup Infracost
@@ -101,7 +101,7 @@ jobs:
         with:
           api-key: ${{ secrets.INFRACOST_API_KEY }}
 
-      - name: Checkout main/master branch
+      - name: Checkout main/develop branch
         uses: actions/checkout@v4
 
       - name: Run Infracost on default branch and update Infracost Cloud
